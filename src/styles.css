@@ -3,16 +3,18 @@
     color: transparent;
     text-shadow: 0 0 1px #202122;
 }
- 
+
 .bg-primary {
     background-color: #81c408 !important;
 }
+
 .display-4 {
     font-size: calc(1.475rem + 2.7vw) !important;
     font-weight: 800 !important;
     line-height: 1.2 !important;
     color: #81c408 !important;
 }
+
 .navbar {
     box-shadow: none;
 }
@@ -20,22 +22,25 @@
 a:hover {
     color: red !important;
 }
+
 .card-title {
-    white-space: nowrap; 
-  width: 100%; 
-  overflow: hidden;
-  text-overflow: ellipsis;  
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
 .dropdown:hover .dropdown-menu {
     display: block !important;
     margin-top: 0;
 
 }
-.log_Reg_Border{
+
+.log_Reg_Border {
     border: 1px solid pink;
     border-radius: 20%;
     margin-left: 10px;
-  
+
 }
 
 .fa:hover {
@@ -51,11 +56,14 @@ a:hover {
     width: 100% !important;
     margin-top: 0% !important;
 }
+
 .featurs .featurs-item .featurs-icon {
     position: relative;
     width: 120px;
     height: 120px;
-}.bg-light {
+}
+
+.bg-light {
     background-color: #f4f6f8 !important;
 }
 
@@ -69,22 +77,27 @@ a:hover {
     transform: translate(-50%);
     transform: rotate(45deg);
     background: var(--bs-secondary);
-    
+
 }
+
 .text-primary {
     color: #81c408 !important;
 }
+
 .px-3 {
     padding-right: 1rem !important;
     padding-left: 1rem !important;
 }
+
 .border-secondary {
     border-color: #ffb524 !important;
 }
+
 .nav-yellow {
-    background-color: #81c408  !important;
+    background-color: #81c408 !important;
 }
-.menuOnLeft { 
+
+.menuOnLeft {
     background-color: #f9f9f9;
     width: 280px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -92,7 +105,8 @@ a:hover {
     right: 0px;
     /* Adjust the value to position the dropdown */
 }
-.menuOnLeft2 { 
+
+.menuOnLeft2 {
     background-color: #f9f9f9;
     width: 280px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -100,6 +114,7 @@ a:hover {
     right: 100px;
     /* Adjust the value to position the dropdown */
 }
+
 .closeBtn {
     font-size: 25px;
     color: black;
@@ -111,16 +126,21 @@ a:hover {
     background-image: linear-gradient(226.69deg, #E5F8FF8C 38.63%, #F9E0B014 82.88%);
 
 }
+
 @media (min-width:375px) {
     .productHeading ul {
         flex-direction: column;
     }
-    
+
 }
+
 /* login */
 img {
     margin: 0 auto;
-    display: block; 
+    display: block;
     height: 170px;
-  }
-  
+}
+
+body{
+    background-color: #eee;
+}
