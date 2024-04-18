@@ -12,6 +12,11 @@ export interface IProduct  {
     categoryName: string
 }
 
+export interface ICart extends IProduct  {
+  quantity: number
+  totalPriceOfProduct: number
+}
+
 export interface APIResponseModel { 
   message: string
   result: boolean

@@ -18,7 +18,6 @@ import { ProductService } from '../../services/product.service';
 export class ProductListComponent implements OnInit {
 
   constructor(
-    private _cart: CartService,
     private _product: ProductService,
     private _router: Router
   ){}
@@ -35,8 +34,7 @@ export class ProductListComponent implements OnInit {
     return this._product.getAllProducts()
   }
   
-  addToCart(product: IProduct): void{
-    this._cart.addToCart(product);
+  goToDetail(product: IProduct): void{
     this._router.navigateByUrl(`/products/${product.productId}`);
   }
 }
