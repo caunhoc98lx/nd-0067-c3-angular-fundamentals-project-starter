@@ -1,0 +1,10 @@
+.errormsg{
+	color: red;
+	background-color: yellow;
+	display: none;
+}
+
+.errormsgshow{
+    display: block;
+    color: red;
+}

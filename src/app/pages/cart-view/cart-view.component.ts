@@ -1,30 +1,31 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-cart-view',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, RouterModule, CommonModule, FormsModule],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, RouterModule, CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './cart-view.component.html',
   styleUrl: './cart-view.component.css'
 })
 export class CartViewComponent implements OnInit{
-  fullName: string;
-  address: string;
-  cardNumber: string;
   totalPrice: number;
+  
+  customerInformationForm: FormGroup;
 
   constructor(
     private _cart: CartService,
     private _router: Router
   ){
-    this.fullName = '';
-    this.address = '';
-    this.cardNumber = '';
     this.totalPrice = 0;
+    this.customerInformationForm = new FormGroup({
+      fullName: new FormControl("", [Validators.required]),
+      address: new FormControl("", Validators.required),
+      cardNumber: new FormControl("", Validators.required)
+    })
   }
 
   ngOnInit(): void {}

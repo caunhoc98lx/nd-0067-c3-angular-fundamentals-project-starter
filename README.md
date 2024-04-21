@@ -25,3 +25,39 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## brief description
+
+- port to start: 4200
+
+- url when to start: http://localhost:4200/home
+
+## 1. Router app
+- home: http://localhost:4200/home
+
+- list product: http://localhost:4200/products
+
+- product detail: http://localhost:4200/product/:id
+
+- cart view: http://localhost:4200/cart-view
+
+- page when order success:  http://localhost:4200/success-view
+
+
+### 2. Components
+
+- cart-view
+
+- product-card
+
+- product-list
+
+- success-view
+
+- app
+
+### 3. Service
+
+- cart service
+
+- product service
