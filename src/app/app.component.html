@@ -37,7 +37,7 @@
                                             <span>$ {{item.totalPriceOfProduct}}</span>
                                         </p>
                                     </div>
-                                    <button class="btn fs-5 closeBtn">
+                                    <button class="btn fs-5 closeBtn" (click)="deleteProductFromCart(item)">
                                         <fa-icon [icon]="faXmarkCircle"></fa-icon>
                                     </button>
                                 </div>

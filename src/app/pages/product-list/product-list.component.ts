@@ -1,11 +1,9 @@
 import { HttpClientModule } from '@angular/common/http';
-import { Component, inject, OnInit } from '@angular/core';
-import { APIResponseModel, CategoryModel, IProduct } from '../../core/model/Model';
+import { Component, OnInit } from '@angular/core';
+import { IProduct } from '../../core/model/Model';
 import { LazyImageDirective } from '../../shared/directive/lazy-image.directive';
-import { Observable } from 'rxjs';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
-import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
 
 @Component({
@@ -16,11 +14,14 @@ import { ProductService } from '../../services/product.service';
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent implements OnInit {
+  listProduct: IProduct[]
 
   constructor(
     private _product: ProductService,
     private _router: Router
-  ){}
+  ){
+    this.listProduct = []
+  }
 
 
   ngOnInit(): void {
@@ -31,7 +32,11 @@ export class ProductListComponent implements OnInit {
   }
 
   getAllProduct() {
-    return this._product.getAllProducts()
+    this._product.getAllProducts().subscribe((res: IProduct[])=>{
+      this.listProduct = res
+    },error=> {
+      alert("Error From API")
+    })
   }
   
   goToDetail(product: IProduct): void{

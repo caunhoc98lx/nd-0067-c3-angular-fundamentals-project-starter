@@ -4,6 +4,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCartPlus, faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
 import { CartService } from './services/cart.service';
+import { IProduct } from './core/model/Model';
 
 @Component({
   selector: 'app-root',
@@ -28,5 +29,9 @@ export class AppComponent {
 
   getSubTotal(){
     return this._cart.getSubTotal();
+  }
+  
+  deleteProductFromCart(product: IProduct){
+    return this._cart.deleteProductFromCart(product)
   }
 }

@@ -14,27 +14,30 @@ export class CartService {
   addToCart(product: IProduct, quantity: number, totalPriceOfProduct: number) {
     this.subTotal += totalPriceOfProduct;
 
-    const getAllProductInCart = this.getCart();
-    if(getAllProductInCart.length > 0){
-      getAllProductInCart.forEach((item, index) => {
-        if(item.productName === product.productName){
-          this.cart[index].quantity += quantity;
-          this.cart[index].totalPriceOfProduct += totalPriceOfProduct;
-        }else{
-          this.cart.push({...product, quantity, totalPriceOfProduct})
-        }
-      })
-    }else{
-      this.cart.push({...product, quantity, totalPriceOfProduct})
-    }
+    const isProductInCart = this.cart.some(item => item.productId === product.productId);
     
+    if(!isProductInCart){
+      this.cart.push({ ...product, quantity, totalPriceOfProduct })
+    }
+
+    this.cart.forEach((item, index) => {
+      if (item.productId === product.productId) {
+        this.cart[index].quantity = this.cart[index].quantity + quantity;
+        this.cart[index].totalPriceOfProduct += totalPriceOfProduct;
+      }
+    })
   }
 
-  getCart(){
+  getCart() {
     return this.cart;
   }
 
-  getSubTotal(){
+  getSubTotal() {
     return this.subTotal;
+  }
+  
+  deleteProductFromCart(product: IProduct){
+    const findIndex = this.cart.findIndex(item => item.productId === product.productId)
+    this.cart.splice(findIndex, 1);
   }
 }

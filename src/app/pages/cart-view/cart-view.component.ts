@@ -3,13 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
 import { CartService } from '../../services/cart.service';
+import { CartItemViewComponent } from "../cart-item-view/cart-item-view.component";
 
 @Component({
-  selector: 'app-cart-view',
-  standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, RouterModule, CommonModule, FormsModule, ReactiveFormsModule],
-  templateUrl: './cart-view.component.html',
-  styleUrl: './cart-view.component.css'
+    selector: 'app-cart-view',
+    standalone: true,
+    templateUrl: './cart-view.component.html',
+    styleUrl: './cart-view.component.css',
+    imports: [RouterOutlet, RouterLink, RouterLinkActive, RouterModule, CommonModule, FormsModule, ReactiveFormsModule, CartItemViewComponent]
 })
 export class CartViewComponent implements OnInit{
   totalPrice: number;
