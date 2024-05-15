@@ -11,27 +11,25 @@ import { IProduct } from './core/model/Model';
   standalone: true,
   imports: [RouterOutlet, RouterLink, FormsModule, FontAwesomeModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title: string = "angular-eCommerce-app"
-  faCartPlus = faCartPlus
-  faXmarkCircle = faXmarkCircle
+  title: string = 'angular-eCommerce-app';
+  faCartPlus = faCartPlus;
+  faXmarkCircle = faXmarkCircle;
 
-  constructor(
-    private _cart: CartService,
-  ) {
-  }
+  constructor(private _cart: CartService) {}
 
   getCart() {
     return this._cart.getCart();
   }
 
-  getSubTotal(){
+  getSubTotal() {
     return this._cart.getSubTotal();
   }
-  
-  deleteProductFromCart(product: IProduct){
-    return this._cart.deleteProductFromCart(product)
+
+  deleteProductFromCart(product: IProduct) {
+    alert(`Removed ${product.productName} from cart`);
+    return this._cart.deleteProductFromCart(product);
   }
 }
