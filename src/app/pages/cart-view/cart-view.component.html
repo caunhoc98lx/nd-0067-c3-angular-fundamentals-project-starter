@@ -6,9 +6,7 @@
                     <h5>Order detail</h5>
                 </div>
                 <div class="card-body">
-                    @for (item of getCart(); track $index) {
-                        <app-cart-item-view *ngFor="let item of getCart()" [product]="item" />
-                    }
+                    <app-cart-item-view *ngFor="let item of getCart()" [product]="item" (changeInputFn)="changeInputFn($event, item.productId)"/>
                 </div>
                 <div class="card-footer">
                     <label for="">Total amount: </label>

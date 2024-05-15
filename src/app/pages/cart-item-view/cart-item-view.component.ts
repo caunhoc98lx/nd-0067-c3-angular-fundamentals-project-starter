@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ICart } from '../../core/model/Model';
 import { CartService } from '../../services/cart.service';
+import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cart-item-view',
@@ -11,7 +12,9 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartItemViewComponent implements OnInit {
   @Input() product: ICart;
+  @Output() changeInputFn = new EventEmitter<number>();
 
+  quantityChange: number;
   constructor(
     private _cart: CartService
   ){
@@ -30,8 +33,15 @@ export class CartItemViewComponent implements OnInit {
       quantity: 0,
       totalPriceOfProduct: 0
     }
+    this.quantityChange = this.product.quantity;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.quantityChange = this.product.quantity;
+  }
+
+  changeFn(event: any) {
+    this.changeInputFn.emit(event.target.value);
+  }
 
 }

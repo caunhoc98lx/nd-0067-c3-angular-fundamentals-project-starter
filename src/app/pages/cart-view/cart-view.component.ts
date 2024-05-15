@@ -42,4 +42,8 @@ export class CartViewComponent implements OnInit{
   countTotalPrice(){
     return this._cart.getSubTotal()
   }
+
+  changeInputFn(quantityValue: any, productId: number): void{
+    return this._cart.reCaculateTotal(quantityValue, productId)
+  }
 }
